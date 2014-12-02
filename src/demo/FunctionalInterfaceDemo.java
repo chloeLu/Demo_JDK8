@@ -1,10 +1,10 @@
 package demo;
 
 
-public class FunctionalInterface {
+public class FunctionalInterfaceDemo {
 }
 
-@java.lang.FunctionalInterface
+@FunctionalInterface
 interface DemoInterface {
 	public void method();
 	default void defaultMethod() {}
