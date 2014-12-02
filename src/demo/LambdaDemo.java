@@ -19,7 +19,7 @@ public class LambdaDemo {
 	public void demoSort() {
 		List<String> strList = Arrays.asList("hippo", "zebra", "mountain lion", "baboon");
 		strList.sort((String s1, String s2) -> s2.length() - s1.length());
-		strList.forEach(e->System.out.println(e));
+		strList.forEach(e->System.out.println(e)); 
 	}
 	
 	public void demoSort_jdk6() {
