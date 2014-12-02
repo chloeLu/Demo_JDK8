@@ -7,12 +7,27 @@ import java.util.List;
 public class LambdaBasics {
 
 	public static final String classStr = "class string variable";
-	
+
 	public static void main(String[] args) {
 		LambdaBasics demoObj = new LambdaBasics();
-//		demoObj.demoSort();
-//		demoObj.demoSort_jdk6();
+		// demoObj.demoSort();
+		// demoObj.demoSort_jdk6();
 		demoObj.demoScope();
+	}
+	
+	public void demoRunnable() {
+		Runnable runnable = () -> { System.out.println("Running from Lambda"); };
+		runnable.run();
+	}
+
+	public void demoRunnable_jdk6() {
+		Runnable runnable_jdk6 = new Runnable() {
+			@Override
+			public void run() {
+				System.out.println("Running without Lambda");
+			}
+		};
+		runnable_jdk6.run();
 	}
 
 	public void demoForEach() {
@@ -23,22 +38,16 @@ public class LambdaBasics {
 		});
 	}
 
-	public void demoForEach_1() {
-		// Note: Iterable.forEach only introduced in Java 7
-		Arrays.asList(1, 2, 3).forEach(e -> {
-			int a = 1;
-			System.out.println(e + "test " + a);
-		});
-	}
-
 	public void demoSort() {
-		List<String> strList = Arrays.asList("hippo", "zebra", "mountain lion", "baboon");
+		List<String> strList = Arrays.asList("hippo", "zebra", "mountain lion",
+				"baboon");
 		strList.sort((String s1, String s2) -> s2.length() - s1.length());
 		strList.forEach(e -> System.out.println(e));
 	}
 
 	public void demoSort_jdk6() {
-		List<String> strList = Arrays.asList("hippo", "zebra", "mountain lion", "baboon");
+		List<String> strList = Arrays.asList("hippo", "zebra", "mountain lion",
+				"baboon");
 		strList.sort(new Comparator<String>() {
 			@Override
 			public int compare(String o1, String o2) {
@@ -55,8 +64,10 @@ public class LambdaBasics {
 
 	public void demoScope() {
 		String localStr = "local string variable";
-		Arrays.asList("Lambda can reference ").forEach(e -> System.out.println(e + localStr));
-		Arrays.asList("Lambda can reference ").forEach(e -> System.out.println(e + classStr));
+		Arrays.asList("Lambda can reference ").forEach(
+				e -> System.out.println(e + localStr));
+		Arrays.asList("Lambda can reference ").forEach(
+				e -> System.out.println(e + classStr));
 	}
-	
+
 }
