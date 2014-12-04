@@ -31,4 +31,8 @@ class Person {
 	public String register() {
 		return name.map(str -> "Registered " + str).orElseGet(() -> "Cannot register without name");
 	}
+	@Override
+	public String toString() {
+		return "Hello, my name is " + getName();
+	}
 }
