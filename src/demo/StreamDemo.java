@@ -45,10 +45,9 @@ public class StreamDemo {
 	}
 	
 	/**
-	 * Goal: collect names of people:
-	 * whose age is greater than 20
-	 * sort in ascending order of age, and
-	 * collects their names only
+	 * Goal: return a list of names:
+	 * 1. whose age is greater than 20, and
+	 * 2. sort in ascending order of age, and
 	 */
 	public void demoWithMoreOperations (List<Person> pList) {
 		List<String> names =pList.parallelStream().filter(p -> p.getAge() > 20)
