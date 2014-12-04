@@ -4,8 +4,8 @@ import java.util.Optional;
 
 public class OptionalDemo {
 	public static void main(String[] args) {
-		Person p1 = new Person("Tom");
-		Person p2 = new Person(null);
+		Person p1 = new Person("Tom", 25);
+		Person p2 = new Person(null, 20);
 		demo(p1);
 		demo(p2);
 	}
@@ -18,9 +18,11 @@ public class OptionalDemo {
 }
 
 class Person {
-	Optional<String> name;
-	public Person(String name) {
+	private Optional<String> name;
+	private int age;
+	public Person(String name, int age) {
 		this.name = Optional.ofNullable(name);
+		this.age = age;
 	}
 	public boolean identified() {
 		return name.isPresent();
@@ -28,11 +30,13 @@ class Person {
 	public String getName() {
 		return name.orElse("John Doe");
 	}
+	public int getAge() {
+		return age;
+	}
 	public String register() {
 		return name.map(str -> "Registered " + str).orElseGet(() -> "Cannot register without name");
 	}
-	@Override
-	public String toString() {
-		return "Hello, my name is " + getName();
+	public String selfIntroduction() {
+		return "I'm " + getName() + " and I'm " + age;
 	}
 }
