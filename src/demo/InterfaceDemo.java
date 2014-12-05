@@ -34,6 +34,12 @@ class Trade{
 	}
 }
 
+
+
+
+
+
+
 interface Fruit {
 	default String name() {
 		return "fruit";
