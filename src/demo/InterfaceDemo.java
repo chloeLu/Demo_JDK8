@@ -15,15 +15,6 @@ interface TradeFI {
 	public static void compare() {}
 }
 
-interface Plant {
-	default String name() {
-		return "plant";
-	}
-	public static boolean growing() {
-		return true;
-	}
-}
-
 class Trade{
 	public boolean isSuccessful;
 	public Trade(boolean isSuccessful) {
@@ -39,6 +30,14 @@ class Trade{
 
 
 
+interface Plant {
+	default String name() {
+		return "plant";
+	}
+	public static boolean growing() {
+		return true;
+	}
+}
 
 interface Fruit {
 	default String name() {
