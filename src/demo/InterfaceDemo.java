@@ -1,16 +1,18 @@
 package demo;
 
-
 public class InterfaceDemo {
 	public static void main (String[] args) {
+		TradeFI checker = t->t.isSuccessful();
+		Trade myTrade = new Trade(true);
+		System.out.println(checker.validate(myTrade));
 	}
 }
 
 @FunctionalInterface
-interface DemoInterface {
-	public void method();
-	default void defaultMethod() {}
-	public static void staticMethod() {}
+interface TradeFI {
+	public boolean validate(Trade t);
+	default void place() {}
+	public static void compare() {}
 }
 
 interface Plant {
@@ -19,6 +21,16 @@ interface Plant {
 	}
 	public static boolean growing() {
 		return true;
+	}
+}
+
+class Trade{
+	public boolean isSuccessful;
+	public Trade(boolean isSuccessful) {
+		this.isSuccessful = isSuccessful;
+	}
+	public boolean isSuccessful() {
+		return isSuccessful;
 	}
 }
 
